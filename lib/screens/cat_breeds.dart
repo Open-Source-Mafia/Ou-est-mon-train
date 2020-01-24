@@ -37,31 +37,31 @@ import 'package:flutter/material.dart';
 
 import 'cat_info.dart';
 
-class CatBreedsPage extends StatefulWidget {
-  CatBreedsPage({Key key, this.title}) : super(key: key);
+class StationListPage extends StatefulWidget {
+  StationListPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _CatBreedsPageState createState() => _CatBreedsPageState();
+  _StationListPageState createState() => _StationListPageState();
 }
 
-class _CatBreedsPageState extends State<CatBreedsPage> {
-  BreedList breedList = BreedList();
+class _StationListPageState extends State<StationListPage> {
+  StationList stationList = StationList();
 
-  void getCatData() async {
-    var catJson = await CatAPI().getCatBreeds();
-    print(catJson);
+  void getStationData() async {
+    var stationsJson = await CatAPI().getStations();
+    print(stationsJson);
 
-    var catMap = json.decode(catJson);
+    var stationsMap = json.decode(stationsJson);
     setState(() {
-      breedList = BreedList.fromJson(catMap['station']);
+      stationList = StationList.fromJson(stationsMap['station']);
     });
   }
 
   @override
   void initState() {
     super.initState();
-    getCatData();
+    getStationData();
   }
 
   @override
@@ -71,26 +71,26 @@ class _CatBreedsPageState extends State<CatBreedsPage> {
         title: Text(widget.title),
       ),
       body: ListView.builder(
-          itemCount: (breedList == null ||
-                  breedList.breeds == null ||
-                  breedList.breeds.length == 0)
+          itemCount: (stationList == null ||
+                  stationList.breeds == null ||
+                  stationList.breeds.length == 0)
               ? 0
-              : breedList.breeds.length,
+              : stationList.breeds.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return CatInfo(
-                      catId: breedList.breeds[index].id,
-                      catBreed: breedList.breeds[index].name);
+                      catId: stationList.breeds[index].id,
+                      catBreed: stationList.breeds[index].name);
                 }));
               },
               child: Card(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(breedList.breeds[index].name),
-                    subtitle: Text(breedList.breeds[index].name),
+                    title: Text(stationList.breeds[index].name),
+                    subtitle: Text(stationList.breeds[index].name),
                   ),
                 ),
               ),

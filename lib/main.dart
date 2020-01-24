@@ -38,11 +38,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'SNCB Better App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CatBreedsPage(title: 'SNCB 2.0'),
+      home: StationListPage(title: 'SNCB 2.0'),
     );
   }
 }

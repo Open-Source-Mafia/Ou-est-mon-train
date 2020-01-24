@@ -36,7 +36,7 @@ const String allStationsString = 'stations/?format=json&lang=en';
 const String liveBoardString = "liveboard/station=";
 
 class CatAPI {
-  Future<dynamic> getCatBreeds() async {
+  Future<dynamic> getStations() async {
     Network network = Network('$iRailAPIURL$allStationsString}');
     var catData = await network.getData();
     return catData;

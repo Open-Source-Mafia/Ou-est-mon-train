@@ -90,12 +90,12 @@ class Breed {
 }
 
 @JsonSerializable()
-class BreedList {
+class StationList {
   List<Breed> breeds;
 
-  BreedList({this.breeds});
-  factory BreedList.fromJson(List<dynamic> json) {
-    return BreedList(
+  StationList({this.breeds});
+  factory StationList.fromJson(List<dynamic> json) {
+    return StationList(
         breeds: json
             .map((e) => Breed.fromJson(e as Map<String, dynamic>))
             .toList());
