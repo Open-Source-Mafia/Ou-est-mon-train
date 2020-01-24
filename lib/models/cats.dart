@@ -91,12 +91,12 @@ class Breed {
 
 @JsonSerializable()
 class StationList {
-  List<Breed> breeds;
+  List<Breed> stations;
 
-  StationList({this.breeds});
+  StationList({this.stations});
   factory StationList.fromJson(List<dynamic> json) {
     return StationList(
-        breeds: json
+        stations: json
             .map((e) => Breed.fromJson(e as Map<String, dynamic>))
             .toList());
   }

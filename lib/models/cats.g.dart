@@ -23,14 +23,14 @@ Map<String, dynamic> _$BreedToJson(Breed instance) => <String, dynamic>{
 
 StationList _$BreedListFromJson(Map<String, dynamic> json) {
   return StationList(
-      breeds: (json['breeds'] as List)
+      stations: (json['breeds'] as List)
           ?.map((e) =>
               e == null ? null : Breed.fromJson(e as Map<String, dynamic>))
           ?.toList());
 }
 
 Map<String, dynamic> _$BreedListToJson(StationList instance) =>
-    <String, dynamic>{'breeds': instance.breeds};
+    <String, dynamic>{'breeds': instance.stations};
 
 Cat _$CatFromJson(Map<String, dynamic> json) {
   return Cat(

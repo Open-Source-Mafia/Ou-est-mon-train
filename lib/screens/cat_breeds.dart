@@ -72,25 +72,25 @@ class _StationListPageState extends State<StationListPage> {
       ),
       body: ListView.builder(
           itemCount: (stationList == null ||
-                  stationList.breeds == null ||
-                  stationList.breeds.length == 0)
+                  stationList.stations == null ||
+                  stationList.stations.length == 0)
               ? 0
-              : stationList.breeds.length,
+              : stationList.stations.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return CatInfo(
-                      catId: stationList.breeds[index].id,
-                      catBreed: stationList.breeds[index].name);
+                      catId: stationList.stations[index].id,
+                      catBreed: stationList.stations[index].name);
                 }));
               },
               child: Card(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(stationList.breeds[index].name),
-                    subtitle: Text(stationList.breeds[index].name),
+                    title: Text(stationList.stations[index].name),
+                    subtitle: Text(stationList.stations[index].name),
                   ),
                 ),
               ),
