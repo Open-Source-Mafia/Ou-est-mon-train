@@ -81,8 +81,8 @@ class _StationListPageState extends State<StationListPage> {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return CatInfo(
-                      catId: stationList.stations[index].id,
-                      catBreed: stationList.stations[index].name);
+                      stationID: stationList.stations[index].id,
+                      station: stationList.stations[index].name);
                 }));
               },
               child: Card(

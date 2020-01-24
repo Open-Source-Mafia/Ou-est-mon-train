@@ -36,10 +36,10 @@ import 'package:cat_app/models/cats.dart';
 import 'package:flutter/material.dart';
 
 class CatInfo extends StatefulWidget {
-  final String catBreed;
-  final String catId;
+  final String station;
+  final String stationID;
 
-  CatInfo({this.catBreed, this.catId});
+  CatInfo({this.station, this.stationID});
 
   @override
   _CatInfoState createState() => _CatInfoState();
@@ -49,7 +49,7 @@ class _CatInfoState extends State<CatInfo> {
   CatList catList = CatList();
 
   void getCatData() async {
-    var catJson = await CatAPI().getCatBreed(widget.catId);
+    var catJson = await CatAPI().getLiveboard(widget.stationID);
     print(catJson);
 
     var catMap = json.decode(catJson);
@@ -71,7 +71,7 @@ class _CatInfoState extends State<CatInfo> {
         appBar: AppBar(
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
-          title: Text(widget.catBreed),
+          title: Text(widget.station),
         ),
         body: getCat());
   }
