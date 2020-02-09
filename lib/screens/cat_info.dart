@@ -35,20 +35,21 @@ import 'package:cat_app/api/cat_api.dart';
 import 'package:cat_app/models/cats.dart';
 import 'package:flutter/material.dart';
 
-class CatInfo extends StatefulWidget {
+class StationInfo extends StatefulWidget {
   final String station;
   final String stationID;
 
-  CatInfo({this.station, this.stationID});
+  StationInfo({this.station, this.stationID});
 
   @override
-  _CatInfoState createState() => _CatInfoState();
+  _StationInfoState createState() => _StationInfoState();
 }
 
-class _CatInfoState extends State<CatInfo> {
+class _StationInfoState extends State<StationInfo> {
   CatList catList = CatList();
 
   void getCatData() async {
+    print(widget.stationID);
     var catJson = await CatAPI().getLiveboard(widget.stationID);
     print(catJson);
 

@@ -80,7 +80,7 @@ class _StationListPageState extends State<StationListPage> {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return CatInfo(
+                  return StationInfo(
                       stationID: stationList.stations[index].id,
                       station: stationList.stations[index].name);
                 }));

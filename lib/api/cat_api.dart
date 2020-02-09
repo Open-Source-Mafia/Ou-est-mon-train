@@ -33,7 +33,7 @@ import 'network.dart';
 
 const String iRailAPIURL = 'https://api.irail.be/';
 const String allStationsString = 'stations/?format=json&lang=en';
-const String liveBoardString = "liveboard/id=";
+const String liveBoardString = "liveboard/?id=";
 
 class CatAPI {
   Future<dynamic> getStations() async {
